@@ -167,7 +167,7 @@ class BottleView(object):
     DEFAULT_ROUTES = ["get", "put", "post", "delete", "index", "options"]
     base_route = None
     route_prefix = None
-    view_identifier = "view"
+    view_identifier = "controller"
 
     @classmethod
     def register(cls, app, base_route=None, route_prefix=None):
@@ -282,7 +282,7 @@ class BottleView(object):
 
         result = "/%s/" % join_paths(*rule_parts)
         result = re.sub(r'(/)\1+', r'\1', result)
-        result = re.sub("/{2,}", "/", result)
+        result = re.sub("/{2,}", "", result)
 
         return result
 
