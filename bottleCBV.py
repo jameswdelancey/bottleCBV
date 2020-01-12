@@ -280,9 +280,9 @@ class BottleView(object):
             if arg not in ignored_rule_args:
                 rule_parts.append("<%s>" % arg)
 
-        result = "/%s/" % join_paths(*rule_parts)
+        result = "/%s" % join_paths(*rule_parts)
         result = re.sub(r'(/)\1+', r'\1', result)
-        result = re.sub("/{2,}", "", result)
+        result = re.sub("/{2,}", "/", result)
 
         return result
 
